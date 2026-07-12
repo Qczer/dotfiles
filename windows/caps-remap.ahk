@@ -3,18 +3,11 @@
 $+`::SendText "~"
 
 
-SetTimer CheckVSCode, 500
-
-CheckVSCode() {
-    if WinActive("ahk_exe Code.exe") && GetKeyState("CapsLock", "T")
-        SetCapsLockState "Off"
-}
-
-
-#HotIf WinActive("ahk_exe Code.exe")
+#HotIf WinActive("ahk_exe Code.exe") || WinActive("ahk_exe devenv.exe")
 
 *CapsLock::
 {
+    SetCapsLockState "Off"
     Send "{Ctrl down}"
 }
 
