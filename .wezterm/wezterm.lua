@@ -17,7 +17,7 @@ config.colors = {
 }
 
 -- Appearance
-config.window_decorations = "RESIZE"
+config.window_decorations = "RESIZE" -- RESIZE - Windows, NONE - linux
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
 	left = 0,
@@ -45,6 +45,26 @@ config.keys = {
 		key = "d",
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }),
+	},
+	{
+		key = "h",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ActivatePaneDirection("Left"),
+	},
+	{
+		key = "j",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ActivatePaneDirection("Down"),
+	},
+	{
+		key = "k",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ActivatePaneDirection("Up"),
+	},
+	{
+		key = "l",
+		mods = "CTRL|SHIFT",
+		action = wezterm.action.ActivatePaneDirection("Right"),
 	},
 }
 
