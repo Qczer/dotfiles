@@ -2,9 +2,6 @@
 
 $+`::SendText "~"
 
-
-#HotIf WinActive("ahk_exe Code.exe") || WinActive("ahk_exe devenv.exe") || WinActive("ahk_exe wezterm-gui.exe")
-
 *CapsLock::
 {
     SetCapsLockState "Off"
@@ -20,8 +17,6 @@ $+`::SendText "~"
         Send "{Esc}"
     }
 }
-
-#HotIf
 
 
 
