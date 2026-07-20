@@ -9,7 +9,7 @@ map('n', '<C-u>', '<C-u>zz')
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 map('n', 'J', 'mzJ`z<Cmd>delmarks z<CR>')
-map('n', '<leader>fs', '<Cmd>ClangdSwitchSourceHeader<CR>', { silent = true, desc = 'Switch Source/Header' })
+map('n', '<leader>fs', vim.cmd.ClangdSwitchSourceHeader, { desc = 'Switch Source/Header' })
 
 map({ 'n', 'v', 'o' }, "'", '`', { noremap = true })
 map({ 'n', 'v', 'o' }, '`', "'", { noremap = true })
