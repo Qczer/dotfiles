@@ -9,10 +9,24 @@ map('n', '<C-u>', '<C-u>zz')
 map('n', 'n', 'nzzzv')
 map('n', 'N', 'Nzzzv')
 map('n', 'J', 'mzJ`z<Cmd>delmarks z<CR>')
-map('n', '<leader>fs', vim.cmd.ClangdSwitchSourceHeader, { desc = 'Switch Source/Header' })
-
 map({ 'n', 'v', 'o' }, "'", '`', { noremap = true })
 map({ 'n', 'v', 'o' }, '`', "'", { noremap = true })
+
+map('n', '<leader>fs', vim.cmd.ClangdSwitchSourceHeader, { desc = 'Switch Source/Header' })
+map('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename symbol' })
+map('n', '<leader>f/', Snacks.picker.grep, { desc = 'Grep (include all)' })
+map('n', '<leader>/', function()
+  Snacks.picker.grep {
+    exclude = {
+      '.git',
+      'node_modules',
+      '.nuxt',
+      '.output',
+      'dist',
+      'build',
+    },
+  }
+end, { desc = 'Grep (ignore)' })
 
 map('i', 'jj', '<Esc>')
 map('i', 'jk', '<Esc>')
