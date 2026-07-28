@@ -7,7 +7,7 @@ ls.add_snippets('vue', {
   s('props', {
     t { 'const props = defineProps<{', '' },
     i(1),
-    t { '', '}>' },
+    t { '', '}>()' },
   }),
 
   s('setup', {
