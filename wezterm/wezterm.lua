@@ -1,3 +1,7 @@
+package.path = package.path
+  .. ";D:/Dev/Other/dotfiles/wezterm/?.lua"
+  .. ";D:/Dev/Other/dotfiles/wezterm/?/init.lua"
+
 local wezterm = require("wezterm")
 local commands = require("commands")
 local opacity = require("utils.opacity")
@@ -8,6 +12,8 @@ local config = wezterm.config_builder()
 config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font_size = 13
 config.line_height = 1.1
+config.default_prog = { "pwsh.exe" }
+config.default_cwd = "D:/Dev/Other/Portfolio/"
 
 -- Colors
 config.color_scheme = "tokyonight_night"
@@ -17,7 +23,7 @@ config.colors = {
 }
 
 -- Appearance
-config.window_decorations = "RESIZE" -- RESIZE - Windows, NONE - linux
+config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 config.window_padding = {
 	left = 0,
@@ -66,6 +72,16 @@ config.keys = {
 		mods = "CTRL|SHIFT",
 		action = wezterm.action.ActivatePaneDirection("Right"),
 	},
+    {
+      key = "{",
+      mods = "CTRL|SHIFT",
+      action = wezterm.action.ScrollByLine(-3),
+    },
+    {
+      key = "}",
+      mods = "CTRL|SHIFT",
+      action = wezterm.action.ScrollByLine(3),
+    },
 }
 
 -- Custom commands
