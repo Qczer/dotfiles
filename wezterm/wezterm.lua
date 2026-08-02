@@ -11,7 +11,7 @@ config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font_size = 13
 config.line_height = 1.1
 config.default_prog = { "pwsh.exe", "-NoLogo" }
-config.default_cwd = "D:/Dev/Other/Portfolio/"
+config.default_cwd = "D:/Dev"
 
 -- Colors
 config.color_scheme = "tokyonight_night"

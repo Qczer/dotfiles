@@ -3,6 +3,18 @@ Set-PSReadLineKeyHandler -Key Ctrl+y -Function AcceptSuggestion
 Set-PSReadLineKeyHandler -Key Ctrl+p -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key Ctrl+n -Function HistorySearchForward
 
+# Vi mode cursor
+Set-PSReadLineOption -EditMode Vi
+Set-PSReadLineOption -ViModeIndicator Script
+Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler {
+    if ($args[0] -eq 'Command') {
+        Write-Host -NoNewline "`e[2 q"
+    } else {
+        Write-Host -NoNewline "`e[6 q"
+    }
+}
+Write-Host -NoNewline "`e[6 q"
+
 # Lazygit
 function lg {
   lazygit
