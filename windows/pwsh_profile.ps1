@@ -1,8 +1,3 @@
-# Keybinds
-Set-PSReadLineKeyHandler -Key Ctrl+y -Function AcceptSuggestion
-Set-PSReadLineKeyHandler -Key Ctrl+p -Function HistorySearchBackward
-Set-PSReadLineKeyHandler -Key Ctrl+n -Function HistorySearchForward
-
 # Vi mode cursor
 Set-PSReadLineOption -EditMode Vi
 Set-PSReadLineOption -ViModeIndicator Script
@@ -15,6 +10,11 @@ Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler {
 }
 Write-Host -NoNewline "`e[6 q"
 
+# Keybinds
+Set-PSReadLineKeyHandler -ViMode Insert -Key Ctrl+y -Function AcceptSuggestion
+Set-PSReadLineKeyHandler -ViMode Insert -Key Ctrl+p -Function HistorySearchBackward
+Set-PSReadLineKeyHandler -ViMode Insert -Key Ctrl+n -Function HistorySearchForward
+
 # Lazygit
 function lg {
   lazygit
@@ -22,15 +22,6 @@ function lg {
 
 # Zoxide
 zoxide init powershell | Out-String | Invoke-Expression
-Remove-Item Alias:cd -Force
-function cd {
-  param(
-    [Parameter(ValueFromRemainingArguments)]
-    [string[]]$Path
-  )
-
-  z @Path
-}
 
 # Yazi
 function y {
@@ -66,8 +57,15 @@ $env:FZF_ALT_C_COMMAND   = "fd --type=d --hidden --strip-cwd-prefix --exclude .g
 $env:FZF_CTRL_T_OPTS     = "--preview 'bat -n --color=always --line-range :500 {}'"
 $env:FZF_ALT_C_OPTS      = "--preview 'eza --tree --color=always {} | head -200'"
 
-$env:FZF_DEFAULT_OPTS    = "--color=fg:#c0caf5,bg:-1,hl:#2ac3de,fg+:#c0caf5,bg+:#283457 --color=hl+:#2ac3de,info:#7aa2f7,prompt:#2ac3de,pointer:#ff007c --color=marker:#ff5da0,spinner:#ff007c,header:#ff9e64,query:#c0caf5 --color=border:#27a1b9,separator:#ff9e64,gutter:#283457"
+$ENV:FZF_DEFAULT_OPTS=@"
+--color=bg+:#313244,bg:-1,spinner:#F5E0DC,hl:#F38BA8
+--color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC
+--color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8
+--color=selected-bg:#45475A
+--color=border:#6C7086,label:#CDD6F4
+"@
 
 Import-Module PSFzf
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+t' -PSReadlineChordReverseHistory 'Ctrl+r'
 
 Invoke-Expression (&starship init powershell)

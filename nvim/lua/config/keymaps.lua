@@ -13,7 +13,8 @@ map({ 'n', 'v', 'o' }, "'", '`', { noremap = true })
 map({ 'n', 'v', 'o' }, '`', "'", { noremap = true })
 
 map('n', '<leader>fs', vim.cmd.ClangdSwitchSourceHeader, { desc = 'Switch Source/Header' })
-map('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename symbol' })
+map('n', '<leader>go', '<cmd>!gh repo view --web<CR>', { desc = 'Open Repo' })
+map('n', '<leader>r', vim.lsp.buf.rename, { desc = 'Rename symbol' })
 map('n', '<leader>f/', Snacks.picker.grep, { desc = 'Grep (include all)' })
 map('n', '<leader>/', function()
   Snacks.picker.grep {
