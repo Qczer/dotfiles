@@ -33,7 +33,7 @@ return {
         type = 'server',
         port = '${port}',
         executable = {
-          command = vim.fn.stdpath('data') .. '/mason/bin/codelldb',
+          command = vim.fn.stdpath('data') .. '/mason/packages/codelldb/extension/adapter/codelldb.exe',
           args = { '--port', '${port}' },
         },
       }
