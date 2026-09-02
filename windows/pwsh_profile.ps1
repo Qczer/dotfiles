@@ -11,6 +11,7 @@ Set-PSReadLineOption -ViModeIndicator Script -ViModeChangeHandler {
 Write-Host -NoNewline "`e[6 q"
 
 # Keybinds
+Set-Alias vim nvim
 Set-PSReadLineKeyHandler -ViMode Insert -Key Ctrl+y -Function AcceptSuggestion
 Set-PSReadLineKeyHandler -ViMode Insert -Key Ctrl+p -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -ViMode Insert -Key Ctrl+n -Function HistorySearchForward

@@ -24,6 +24,7 @@ map('n', '<leader>/', function()
       '.output',
       'dist',
       'build',
+      'vendor',
     },
   }
 end, { desc = 'Grep (ignore)' })
