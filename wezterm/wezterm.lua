@@ -10,8 +10,13 @@ local config = wezterm.config_builder()
 config.font = wezterm.font("FiraCode Nerd Font Mono")
 config.font_size = 13
 config.line_height = 1.1
-config.default_prog = { "pwsh.exe", "-NoLogo" }
-config.default_cwd = "D:/Dev"
+
+if wezterm.target_triple:find("linux") then
+	config.default_prog = { "/usr/bin/fish", "-l" }
+elseif wezterm.target_triple:find("windows") then
+	config.default_prog = { "pwsh.exe", "-NoLogo" }
+	config.default_cwd = "D:/Dev"
+end
 
 -- Colors
 config.color_scheme = "tokyonight_night"
