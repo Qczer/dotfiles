@@ -73,3 +73,7 @@ set -g fish_greeting
 
 # Starship
 starship init fish | source
+if status is-interactive
+    and not set -q TMUX
+    tmux
+end
