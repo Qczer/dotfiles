@@ -19,13 +19,6 @@ return {
     config = function()
       local dap = require('dap')
 
-      require('mason-nvim-dap').setup({
-        ensure_installed = {
-          'codelldb',
-        },
-        automatic_installation = true,
-      })
-
       require('dapui').setup()
       require('nvim-dap-virtual-text').setup()
 
