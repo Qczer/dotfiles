@@ -1,0 +1,10 @@
+z - Zoxide searching for used directories
+  z (search for) - searches for a folder
+  zi - list of folders with fzf
+
+eza - better ls, aliases:
+  ls - ls replacement with only most important data
+  la - list all
+  lt - list tree
+
+Ctrl+l - clear

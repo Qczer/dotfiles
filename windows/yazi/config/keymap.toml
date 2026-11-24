@@ -125,13 +125,11 @@ keymap = [
 	{ on = [ ",", "r" ], run = "sort random --reverse=no",                       desc = "Sort randomly" },
 
 	# Goto
+	{ on = [ "g", "f" ],       run = "follow",                   desc = "Follow hovered symlink" },
 	{ on = [ "g", "h" ],       run = "cd ~",                     desc = "Go home" },
 	{ on = [ "g", "c" ],       run = "cd D:/Dev/Other/dotfiles", desc = "Go ~/dotfiles" },
-	{ on = [ "g", "d" ],       run = "cd D:/Downloads",          desc = "Go ~/Downloads" },
-	{ on = [ "g", "<Space>" ], run = "cd --interactive",         desc = "Jump interactively" },
-	{ on = [ "g", "f" ],       run = "follow",                   desc = "Follow hovered symlink" },
-  { on = [ "g", "C" ],       run = 'cd C:/Users/Mati',         desc = "Go C:/Users/Mati"},
-  { on = [ "g", "D" ],       run = 'cd D:/Dev',                desc = "Go D:/Dev"},
+	{ on = [ "g", "d" ],       run = "cd D:/Downloads",          desc = "Go D:/Downloads" },
+  { on = [ "g", "D" ],       run = "cd D:/Dev",                desc = "Go D:/Dev"},
 
 	# Tabs
 	{ on = [ "t", "t" ], run = "tab_create --current",     desc = "Create a new tab in CWD" },

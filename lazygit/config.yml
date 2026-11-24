@@ -1,0 +1,8 @@
+gui:
+  language: "en"
+  theme:
+    selectedLineBgColor:
+      - "#013e4a"
+git:
+  diffRenderers:
+    - command: delta --{{colorScheme}} --paging=never --side-by-side
